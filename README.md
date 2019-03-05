@@ -20,28 +20,28 @@ weekday_pct: the percent of the user’s trips occurring during a weekday
 ## Workflow
 ### Data Cleaning
 
-- For the phone column we created a new variable 'other' to include in our analysis
+- For the phone column I created a new variable 'other' to include in our analysis
 
-- For the avg_rating_of_driver, and the avg_rating_by_driver columns we took the average rating for each column, and used that average to replace the null values. 
+- For the avg_rating_of_driver, and the avg_rating_by_driver columns I took the average rating for each column, and used that average to replace the null values. 
 
-- We created a new column 'total_days_member' to account for how many days someone has used the car service. After doing this we dropped the 'signup_date', and 'last_trip_date'
+- I created a new column 'total_days_member' to account for how many days someone has used the car service. After doing this I dropped the 'signup_date', and 'last_trip_date'
 
-- We then created dummy columns for our city and phone variables, and then dropped 'phone' and 'city' from our data frame
+- I then created dummy columns for our city and phone variables, and then dropped 'phone' and 'city' from our data frame
 
 ### Model Building
-- We determined that a Gradient Boosted model or random forest model are the best methods for analyzing churn rate. Because of our time limitations we went ahead with a random forest model.
+- I determined that a Gradient Boosted model or random forest model are the best methods for analyzing churn rate. Because of our time limitations I went ahead with a random forest model.
 
 <img src="data/first_run.png"
     style="float: left; margin-right: 10px;" />
 
-- We performed a grid search for perameters on our random forest model. The best model had 61 trees, a max depth of 10, a min samples per leaf of 10. We got an accuracy score of .79. 
+- I performed a grid search for perameters on our random forest model. The best model had 61 trees, a max depth of 10, a min samples per leaf of 10. I got an accuracy score of .79. 
 
 <img src="data/gid search.png"
     style="float: left; margin-right: 10px;" />
 
-- We then decided to remove the phone variables to see if it improved our model. This was done because their importance was low compared to the other features in our model. When we did this our accuracy went down, so we went back to the previous model.
+- I then decided to remove the phone variables to see if it improved our model. This was done because their importance was low compared to the other features in our model. When I did this our accuracy went down, so I went back to the previous model.
 
-- We then ran our model with the test data and recieved an accuracy score of .776
+- I then ran our model with the test data and recieved an accuracy score of .776
 
 <img src="data/last_run.png"
     style="float: left; margin-right: 10px;" />
@@ -55,43 +55,43 @@ Our model had a precision of 0.80, and a recall of 0.86
 
 ## How did you compute the target?
 
-We created a churn column based on when the last time an individual used the service. For this experiment, if the user had not used the service in the last 30 days they were considered to have churned. The data was collected on July 1, 2014. 
+I created a churn column based on when the last time an individual used the service. For this experiment, if the user had not used the service in the last 30 days they were considered to have churned. The data was collected on July 1, 2014. 
 
 ## What model did you use in the end? Why?
 
-We used a random forest model for our analysis. Random forest was the best model for this experiment because we were dealing with a classification problem, and it is easy to tune. We were unable to differentiate the data with a straight line, so we knew logistic regression would not work.
+I used a random forest model for our analysis. Random forest was the best model for this experiment because I was dealing with a classification problem, and it is easy to tune. I was unable to differentiate the data with a straight line, so I knew logistic regression would not work.
 
 
 ## Alternative models you considered? Why are they not good enough?
 
-We considered using gradient decient boosting, but we were worried about time. The random forest model can be run in parallel, so it is much faster.
+I considered using gradient decient boosting, but I was worried about time. The random forest model can be run in parallel, so it is much faster.
 
 ## What performance metric did you use to evaluate the model? Why?
 
-We used accuracy, precision, and recall to evaluate our model. We used these because they are the best metrics available to evaluate a Random Forest model. We originally used accuracy because our outcome classes were relatively balanced.
+I used accuracy, precision, and recall to evaluate our model. I used these because they are the best metrics available to evaluate a Random Forest model. I originally used accuracy because my outcome classes were relatively balanced.
 
 ## Based on insights from the model, what plans do you propose to reduce churn?
 
-We began looking into how we would reduce churn by looking into the features based on their importance.
+I began looking into how I would reduce churn by looking into the features based on their importance.
 
 <img src="data/feat_importance.png"
     style="float: left; margin-right: 10px;" />
 
-We propose that the company allocates more resources to Winterfell and Astapor because they have a higher churn percentage compared to King's Landing. 
+I propose that the company allocates more resources to Winterfell and Astapor because they have a higher churn percentage compared to King's Landing. 
 
 <img src="data/churn_by_city.png"
     style="float: left; margin-right: 10px;" />
 
-We also recommend assessing or reevaluating how surge pricing is implemented. We see a significant increase in churn when users experience rides while the price is surging. We wanted to run a hypothesis test to confirm the significant difference, but ran out of time.
+I also recommend assessing or reevaluating how surge pricing is implemented. I see a significant increase in churn when users experience rides while the price is surging. I wanted to run a hypothesis test to confirm the significant difference, but ran out of time.
 
 <img src="data/surge_perc.png"
     style="float: left; margin-right: 10px;" />
 
 ## What are the potential impacts of implementing these plans or decisions? What performance metrics did you use to evaluate these decisions, why?
 
-Ideally by allocating more resources to Winterfell and Astapor we will be able to decrease the churn rate in those cities.
+Ideally by allocating more resources to Winterfell and Astapor I will be able to decrease the churn rate in those cities.
 
-By reassessing the implementation of surge pricing, we hope that the number of rides with surging prices will decrease, and less riders will churn. 
+By reassessing the implementation of surge pricing, I hope that the number of rides with surging prices will decrease, and less riders will churn. 
 
 
 
