@@ -20,33 +20,33 @@ weekday_pct: the percent of the user’s trips occurring during a weekday
 ## Workflow
 ### Data Cleaning
 
-- For the phone column I created a new variable 'other' to include in our analysis
+- For the phone column I created a new variable 'other' to include in I analysis
 
 - For the avg_rating_of_driver, and the avg_rating_by_driver columns I took the average rating for each column, and used that average to replace the null values. 
 
 - I created a new column 'total_days_member' to account for how many days someone has used the car service. After doing this I dropped the 'signup_date', and 'last_trip_date'
 
-- I then created dummy columns for our city and phone variables, and then dropped 'phone' and 'city' from our data frame
+- I then created dummy columns for my city and phone variables, and then dropped 'phone' and 'city' from my data frame
 
 ### Model Building
-- I determined that a Gradient Boosted model or random forest model are the best methods for analyzing churn rate. Because of our time limitations I went ahead with a random forest model.
+- I determined that a Gradient Boosted model or random forest model are the best methods for analyzing churn rate. Because of my time limitations I went ahead with a random forest model.
 
 <img src="data/first_run.png"
     style="float: left; margin-right: 10px;" />
 
-- I performed a grid search for perameters on our random forest model. The best model had 61 trees, a max depth of 10, a min samples per leaf of 10. I got an accuracy score of .79. 
+- I performed a grid search for perameters on my random forest model. The best model had 61 trees, a max depth of 10, a min samples per leaf of 10. I got an accuracy score of .79. 
 
 <img src="data/gid search.png"
     style="float: left; margin-right: 10px;" />
 
-- I then decided to remove the phone variables to see if it improved our model. This was done because their importance was low compared to the other features in our model. When I did this our accuracy went down, so I went back to the previous model.
+- I then decided to remove the phone variables to see if it improved my model. This was done because their importance was low compared to the other features in my model. When I did this my accuracy went down, so I went back to the previous model.
 
-- I then ran our model with the test data and recieved an accuracy score of .776
+- I then ran my model with the test data and recieved an accuracy score of .776
 
 <img src="data/last_run.png"
     style="float: left; margin-right: 10px;" />
 
-Our model had a precision of 0.80, and a recall of 0.86
+My model had a precision of 0.80, and a recall of 0.86
 
 <img src="data/confusionmatrix.png"
     style="float: left; margin-right: 10px;" />
@@ -59,7 +59,7 @@ I created a churn column based on when the last time an individual used the serv
 
 ## What model did you use in the end? Why?
 
-I used a random forest model for our analysis. Random forest was the best model for this experiment because I was dealing with a classification problem, and it is easy to tune. I was unable to differentiate the data with a straight line, so I knew logistic regression would not work.
+I used a random forest model for my analysis. Random forest was the best model for this experiment because I was dealing with a classification problem, and it is easy to tune. I was unable to differentiate the data with a straight line, so I knew logistic regression would not work.
 
 
 ## Alternative models you considered? Why are they not good enough?
@@ -68,7 +68,7 @@ I considered using gradient decient boosting, but I was worried about time. The 
 
 ## What performance metric did you use to evaluate the model? Why?
 
-I used accuracy, precision, and recall to evaluate our model. I used these because they are the best metrics available to evaluate a Random Forest model. I originally used accuracy because my outcome classes were relatively balanced.
+I used accuracy, precision, and recall to evaluate my model. I used these because they are the best metrics available to evaluate a Random Forest model. I originally used accuracy because my outcome classes were relatively balanced.
 
 ## Based on insights from the model, what plans do you propose to reduce churn?
 
